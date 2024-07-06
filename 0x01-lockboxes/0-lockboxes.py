@@ -22,7 +22,7 @@ def canUnlockAll(boxes):
         return False
     if len(boxes) == 1:
         return True
-    
+
     keys = [0]
 
     for key in keys:
