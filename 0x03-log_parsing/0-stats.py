@@ -4,10 +4,7 @@ import re
 import signal
 
 
-pattern = (
-    r'^(\d+\.\d+\.\d+\.\d+) - \[(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d+)\] '
-    r'"(\w+) ([^"]+)" (\d+) (\d+)'
-)
+pattern = r'^\S+\s*-\s*\[\S+ \S+\] "GET /projects/260 HTTP/1.1" (\S+) (\d+)$'
 match_count = 0
 
 size = 0
@@ -44,8 +41,8 @@ try:
         match = re.match(pattern, line)
         if match:
             match_count += 1
-            ip, tstamp, method, url, status_code, file_size = match.groups()
-            size += int(file_size)
+            status_code = match.group(1)
+            size = int(match.group(2))
             count_codes[status_code] = count_codes.get(status_code, 0) + 1
             if match_count % 10 == 0:
                 print_stats()
