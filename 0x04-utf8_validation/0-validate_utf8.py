@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """Module checking if a dataset is represents a valid UTF-8 encoding"""
+
+
 def validUTF8(data):
     """Validate UTF-8 encoding of a sequence of characters
     """
