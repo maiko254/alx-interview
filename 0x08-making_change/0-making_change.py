@@ -1,7 +1,15 @@
 #!/usr/bin/python3
+"""
+A function to calculate the minimum number of coins needed to make a
+total value using a given set of coins.
+"""
 
 
 def makeChange(coins, total):
+    """
+    Calculate the minimum number of coins needed to make a total value
+    using a given set of coins.
+    """
     if total < 0:
         return -1
     if total == 0:
